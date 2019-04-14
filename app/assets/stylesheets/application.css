@@ -90,3 +90,18 @@ margin-top: 200px;
   background: #f2d58a;
   color: white;
 }
+
+.blue-btn2 {
+  display: inline-block;
+  padding: 0.3em 1em;
+  text-decoration: none;
+  color: #93c9ff;
+  border: solid 2px #93c9ff;
+  border-radius: 3px;
+  transition: .2s;
+}
+
+.blue-btn2:hover {
+  background: #93c9ff;
+  color: white;
+}

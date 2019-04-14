@@ -1,6 +1,10 @@
-<div class="topcoment text-center">
-  <h1>Welcome to the Microposts</h1>
-  <h3>投稿してみんなとつながろう</h3>
-  <%= link_to 'アカウント作成', signup_path, class: 'btn yellow-btn'%>
-  <div class="btn blue-btn">ログイン</div>
-</div>
+<% if logged_in? %>
+
+<% else %>
+  <div class="topcoment text-center">
+    <h1>Welcome to the Microposts</h1>
+    <h3>投稿してみんなとつながろう</h3>
+    <%= link_to 'アカウント作成', signup_path, class: 'btn yellow-btn' %>
+    <%= link_to 'ログイン', login_path, class: 'btn blue-btn' %>
+  </div>
+<% end %>
