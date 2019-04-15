@@ -1,2 +1,29 @@
-<h1>Users#show</h1>
-<p>Find me in app/views/users/show.html.erb</p>
+<div class="row">
+  <aside class="col-sm-4">
+    <div class="panel">
+      <div class="panel-heading">
+        <div class="text-center">
+          <i class="fas fa-user-circle fa-5x"></i>
+          <h4><%= @user.name %>
+        </div>
+      </div>
+      <div class="panel-body">
+        プロフィール
+      </div>
+    </div>
+  </aside>
+  
+  <div class="col-sm-8">
+    <div class="panel">
+      <div class="panel-heading justify">
+        <a class="  show-btn active" href="#">ポスト</a></li>
+        <a class="  show-btn" href="#">フォロー</a></li>
+        <a class="  show-btn" href="#">フォロワー</a></li>
+        <a class="  show-btn" href="#">いいね</a></li>
+      </div>
+      <div class="panel-body">
+        ポスト内容
+      </div>
+    </div>
+  </div>
+</div>

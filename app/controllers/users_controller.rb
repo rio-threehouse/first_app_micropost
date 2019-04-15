@@ -1,11 +1,11 @@
 class UsersController < ApplicationController
   before_action :require_user_logged_in, except: [:new, :create]
   def index
-    #ホーム
+    #ユーザ一覧
   end
 
   def show
-    #ユーザ詳細ページ
+    @user = User.find(params[:id])
   end
 
   def new
