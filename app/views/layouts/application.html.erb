@@ -15,13 +15,24 @@
 
   </head>
 
-  <body>
-    <%= render 'layouts/navbar' %>
+  <% if logged_in?%>
+    <body class="home">
+      <%= render 'layouts/navbar' %>
+      <div class="container">
+        <%= render 'layouts/flash_messages' %>
 
-    <div class="container">
-      <%= render 'layouts/flash_messages' %>
+        <%= yield %>
+      </div>
+    </body>
+  <% else %>
+    <body class="toppage">
+      <%= render 'layouts/navbar' %>
+      <div class="container">
+        <%= render 'layouts/flash_messages' %>
 
-      <%= yield %>
-    </div>
-  </body>
+        <%= yield %>
+      </div>
+    </body>
+  <% end %>
+  
 </html>
