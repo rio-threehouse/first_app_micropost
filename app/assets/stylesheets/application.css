@@ -3,6 +3,7 @@
 body {
   color: #666666;
 }
+
 .toppage {
   background-image: linear-gradient(-90deg, #D1FFFE, #FFF0D1);
 }
@@ -14,21 +15,13 @@ body {
 .navbar {
   background-color: #fff;
 }
-.navbar-header img {
-  margin-top: 5px;
-  height: 40px;
-}
 
 .fa-comments {
     color: #b7dbff;
 }
 
 .topcoment h1 {
-margin-top: 200px;
-}
-
-.btn {
-  margin: 20px;
+margin-top: 150px;
 }
 
 .blue-btn {
@@ -43,15 +36,16 @@ margin-top: 200px;
   display: inline-block;
   color: #696969;
   border: 2px solid #808080;
+  text-decoration: none;
+  margin: 20px;
 }
 
 .blue-btn:hover {
   background: #93c9ff;
   color: #fff;
   border: 2px solid #93c9ff;
-}
-.blue-btn:active {
-  top: 2px;
+  text-decoration: none;
+  margin: 20px;
 }
 
 .yellow-btn {
@@ -66,15 +60,16 @@ margin-top: 200px;
   display: inline-block;
   color: #696969;
   border: 2px solid #808080;
+  text-decoration: none;
+  margin: 20px;
 }
 
 .yellow-btn:hover {
   background: #f2d58a;
   color: #fff;
   border: 2px solid #f2d58a;
-}
-.yellow-btn:active {
-  top: 2px;
+  text-decoration: none;
+  margin: 20px;
 }
 
 .jumbotron {
@@ -87,6 +82,7 @@ margin-top: 200px;
   text-decoration: none;
   color: #f2d58a;
   border: solid 2px #f2d58a;
+  background-color: #fff;
   border-radius: 3px;
   transition: .2s;
 }
@@ -102,6 +98,7 @@ margin-top: 200px;
   text-decoration: none;
   color: #93c9ff;
   border: solid 2px #93c9ff;
+  background-color: #fff;
   border-radius: 3px;
   transition: .2s;
 }
@@ -139,12 +136,15 @@ margin-top: 200px;
   color: #696969;
   background-color: #fff;
   border-radius:15px;
+  text-decoration: none;
 }
 
 .show-btn:hover {
   background: #b0d7ff81;
   color: #696969;
+  text-decoration: none;
 }
+
 .show-btn:active {
   top: 2px;
 }
@@ -153,4 +153,3 @@ margin-top: 200px;
   background: #ffe7989f;
   color: #696969;
 }
-

@@ -16,7 +16,7 @@ class SessionsController < ApplicationController
 
   def destroy #ログアウトボタン設置する
     session[:user_id] = nil
-    flash[:success] = 'ログアウトしました'
+    flash[:info] = 'ログアウトしました'
     redirect_to root_url
   end
 
