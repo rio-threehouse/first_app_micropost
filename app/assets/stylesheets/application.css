@@ -153,3 +153,17 @@ margin-top: 150px;
   background: #ffe7989f;
   color: #696969;
 }
+
+.post-btn {
+  background-color: #a6d3ffab;
+  transition: .2s;
+}
+
+.post-btn:hover {
+  background-color: #a6d3ff;
+}
+
+.home-icon {
+  font-size: 20px;
+  color: #7fb9f3f6;
+}

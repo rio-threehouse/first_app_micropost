@@ -1,10 +1,48 @@
 <% if logged_in? %>
+  <div class="row">
+    <aside class="col-xs-4">
+      <div class="panel">
+        <div class="panel-heading">
+          <div class="text-center">
+            <i class="fas fa-user-circle fa-5x"></i>
+            <h4><%= current_user.name %></h4>
+          </div>
+        </div>
+        <div class="panel-body row text-center">
+          <p class="col-sm-4"><a href="#" data-toggle="tooltip" title="投稿"><i class="far fa-comment-dots home-icon"></i><br>15</a></p>
+          <p class="col-sm-4"><a href="#" data-toggle="tooltip" title="フォロー"><i class="fas fa-user-check home-icon"></i><br>5</a></p>
+          <p class="col-sm-4"><a href="#" data-toggle="tooltip" title="フォロワー"><i class="fas fa-user-friends home-icon"></i><br>1</a></p>
+          <script type="text/javascript">
+            $(function () {
+              $('[data-toggle="tooltip"]').tooltip();
+            });
+          </script>
+        </div>
+      </div>
+    </aside>
+  
+    <div class="col-xs-8">
+      <div class="panel">
+        <div class="panel-heading">
+          <button class="btn post-btn btn-block" data-toggle="collapse" data-target="#formAccordion">
+            投稿を書く
+          </button>
+          <div id="formAccordion" class="collapse">
+              投稿フォームrenderする
+          </div>
+        </div>
+        <div class="panel-body">
+          タイムライン
+        </div>
+      </div>
+    </div>
+  </div>
 
 <% else %>
   <div class="topcoment text-center">
     <h1>Welcome to the Microposts</h1>
     <h3>投稿してみんなとつながろう</h3>
-    <%= link_to 'アカウント作成', signup_path, class: 'btn yellow-btn' %>
-    <%= link_to 'ログイン', login_path, class: 'btn blue-btn' %>
+    <%= link_to 'アカウント作成', signup_path, class: 'yellow-btn' %>
+    <%= link_to 'ログイン', login_path, class: 'blue-btn' %>
   </div>
 <% end %>
