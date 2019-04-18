@@ -12,6 +12,11 @@ body {
   background-image: linear-gradient(-90deg, #ECFBFE, #FEF7EC);
 }
 
+.navbar-nav>li>a.dropdown-toggle {
+  padding-top: 8px;
+  padding-bottom: 0px
+}
+
 .fixed_btn {
   position: fixed;
   bottom: 40px; 
@@ -194,7 +199,7 @@ margin-top: 150px;
   top: 2px;
 }
 
-.active {
+.show-btn.active {
   background: #ffe7989f;
   color: #696969;
 }

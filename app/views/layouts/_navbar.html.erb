@@ -25,7 +25,10 @@
             </li>
             <li class="dropdown <%= 'active' if current_page?(user_path(current_user)) %>">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-                <i class="nav-icon fas fa-user-circle"></i> <%= current_user.name %>
+                <span class="gravatar">
+                  <img src="<%= gravatar_url(current_user, size: 25) %>" alt="" class="img-circle">
+                </span> 
+                <%= current_user.name %>
                 <i class="fas fa-chevron-down"></i>
               </a>
               <ul class="dropdown-menu">
