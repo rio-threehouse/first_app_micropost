@@ -45,8 +45,8 @@
               </ul>
             </li>
           <% else %>
-            <li><%= link_to 'アカウント作成', signup_path %></li>
-            <li><%= link_to 'ログイン', login_path %></li>
+            <li class="dropdown <%= 'active' if current_page?(signup_path) %>"><%= link_to 'アカウント作成', signup_path %></li>
+            <li class="dropdown <%= 'active' if current_page?(login_path) %>"><%= link_to 'ログイン', login_path %></li>
           <% end %>
         </ul>
       </div>
