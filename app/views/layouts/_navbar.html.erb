@@ -8,16 +8,45 @@
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>
-        <a class="navbar-brand" href="/">Microposts <i class="fas fa-comments fa-lg"></i></a>
+        <a class="navbar-brand nav-icon" href="/">Microposts <i class="fas fa-comments fa-lg"></i></a>
       </div>
       <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
         <ul class="nav navbar-nav navbar-right">
           <% if logged_in? %>
-            <li><%= link_to 'ユーザ', user_path(current_user) %></li>
-            <li><%= link_to 'ログアウト', logout_path, method: :delete %></li>
+            <li class="<%= 'active' if current_page?(root_path) %>">
+              <%= link_to root_path do %>
+                <i class="nav-icon fas fa-home"></i> ホーム
+              <% end %>
+            </li>
+            <li class="<%= 'active' if current_page?(users_path) %>">
+              <%= link_to users_path do %>
+                <i class="nav-icon far fa-id-badge"></i> ユーザ一覧
+              <% end %>
+            </li>
+            <li class="dropdown <%= 'active' if current_page?(user_path(current_user)) %>">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                <i class="nav-icon fas fa-user-circle"></i> <%= current_user.name %>
+                <i class="fas fa-chevron-down"></i>
+              </a>
+              <ul class="dropdown-menu">
+                <li>
+                  <%= link_to user_path(current_user) do %>
+                    <i class="far fa-user"></i> プロフィール
+                  <% end %>
+                </li>
+                <li role="separator" class="divider"></li>
+                <li>
+                  <a href="#"><i class="fas fa-cog"></i> 設定</a>
+                </li>
+                <li role="separator" class="divider"></li>
+                <li>
+                  <%= link_to 'ログアウト', logout_path, method: :delete %>
+                </li>
+              </ul>
+            </li>
           <% else %>
-              <li><%= link_to 'アカウント作成', signup_path %></li>
-              <li><%= link_to 'ログイン', login_path %></li>
+            <li><%= link_to 'アカウント作成', signup_path %></li>
+            <li><%= link_to 'ログイン', login_path %></li>
           <% end %>
         </ul>
       </div>

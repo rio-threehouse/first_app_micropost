@@ -12,12 +12,61 @@ body {
   background-image: linear-gradient(-90deg, #ECFBFE, #FEF7EC);
 }
 
+.fixed_btn {
+  position: fixed;
+  bottom: 40px; 
+  right: 16%;
+  padding: 6px 40px;
+
+  font-family: "Roboto", sans-serif;
+  font-weight: 500;
+  background: transparent;
+  outline: none !important;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: inline-block;
+  color: #fff;
+  background-color: #93c9ff;
+  border: 1.5px solid #93c9ff;
+  border-radius:33px;
+  text-decoration: none;
+}
+
+.fixed_btn:hover {
+  background: #74baff;
+  text-decoration: none;
+}
+
+.fa-comment {
+  color: #fff;
+}
+
+.glyphicon-plus {
+  font-size: 5px;
+}
+
 .navbar {
   background-color: #fff;
 }
 
 .fa-comments {
     color: #b7dbff;
+}
+.navbar-default .navbar-nav>.active>a {
+  color: #7fafe0;
+  background-color: rgb(255, 255, 255);
+}
+.navbar-default .navbar-nav>.active>a:hover {
+  color: #93c9ff;
+  background-color: #fff;
+}
+.navbar-default .navbar-nav > li > a:hover {
+  color: #93c9ff;
+  background-color: transparent;
+}
+
+.nav-icon {
+  font-size: 20px;
 }
 
 .topcoment h1 {
