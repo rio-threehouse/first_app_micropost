@@ -71,7 +71,7 @@ body {
 }
 
 .topcoment h1 {
-margin-top: 150px;
+margin-top: 15%;
 }
 
 .blue-btn {
@@ -216,4 +216,20 @@ margin-top: 150px;
 .home-icon {
   font-size: 20px;
   color: #7fb9f3f6;
+}
+
+.media {
+  border-bottom: solid 1px #e4e4e4;
+}
+
+.media-body {
+  padding: 0px 0px 10px 5px;
+}
+
+.media-heading {
+  padding-bottom: 10px;
+}
+
+.follow {
+  padding: 1px 25px;
 }

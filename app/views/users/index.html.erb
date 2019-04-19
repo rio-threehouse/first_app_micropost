@@ -1,2 +1,25 @@
-<h1>Users#index</h1>
-<p>Find me in app/views/users/index.html.erb</p>
+<div class="row">
+  <div class="col-sm-8 col-sm-push-4">
+    <div class="panel">
+      <div class="panel-body">
+        <%= render "users/users", users: @users %>
+      </div>
+    </div>
+  </div>
+
+  <aside class="col-sm-4 col-sm-pull-8">
+    <div class="panel">
+      <div class="panel-heading">
+        <div class="text-center">
+          フォロー中
+        </div>
+      </div>
+      <div class="panel-body">
+        フォローしている人がいればそのユーザを表示。<br>
+        フォローしている人がいなかったら、<br>
+        "<i class="fas fa-user-check home-icon"></i>気になる人をフォローしよう"<br>
+        と表示する。
+      </div>
+    </div>
+  </aside>
+</div>

@@ -1,0 +1,20 @@
+<% if users.any? %>
+  <ul class="media-list">
+    <% users.each do |user| %>
+      <li class="media">
+        <div class="media-left">
+          <img src="<%= gravatar_url(user, size: 55) %>" alt="" class="img-circle" style="padding-bottom:5px;">
+        </div>
+        <div class="media-body">
+          <div class="media-heading">
+            <h4 >
+              <%= user.name %>
+              <a class="follow btn btn-info pull-right">フォローする</a>
+            </h4>
+          </div>
+          <!-- プロフィールを表示する -->
+        </div>
+      </li>
+    <% end %>
+  </ul>
+<% end %>

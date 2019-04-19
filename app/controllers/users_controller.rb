@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
   before_action :require_user_logged_in, except: [:new, :create]
   def index
-    #ユーザ一覧
+    @users = User.all.order('created_at DESC').page(params[:page])
   end
 
   def show
