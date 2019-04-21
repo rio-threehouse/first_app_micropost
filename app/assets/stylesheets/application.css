@@ -1,7 +1,8 @@
 @charset "utf-8";
 
 body {
-  color: #666666;
+  color: #463925;
+  word-break: break-all;
 }
 
 .toppage {
@@ -158,7 +159,6 @@ margin-top: 15%;
   color: white;
 }
 .panel {
-  word-wrap: break-word;
   border: solid 1px #dcdcdc;
 }
 
@@ -183,24 +183,24 @@ margin-top: 15%;
   transition: all 0.3s ease;
   position: relative;
   display: inline-block;
-  color: #696969;
   background-color: #fff;
   border-radius:15px;
-  text-decoration: none;
 }
 
 .show-btn:hover {
   background: #b0d7ff81;
-  color: #696969;
-  text-decoration: none;
-}
-
-.show-btn:active {
-  top: 2px;
 }
 
 .show-btn.active {
   background: #ffe7989f;
+}
+
+.show-btn-link {
+  color: #696969;
+}
+
+.show-btn-link:hover {
+  text-decoration: none;
   color: #696969;
 }
 
@@ -215,21 +215,62 @@ margin-top: 15%;
 
 .home-icon {
   font-size: 20px;
-  color: #7fb9f3f6;
+  color: #4453637c;
 }
 
 .media {
   border-bottom: solid 1px #e4e4e4;
+  position: relative;
+  padding: 5px;
+  margin: 0px;
 }
 
 .media-body {
   padding: 0px 0px 10px 5px;
 }
 
-.media-heading {
+.user.media-heading {
   padding-bottom: 10px;
 }
 
 .follow {
+  position: relative;
   padding: 1px 25px;
+  float: right;
+}
+
+h5.microposts {
+  margin: 0px;
+}
+
+.link {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.link:hover {
+  background-color: #b8b8b818;
+}
+
+.micropost.panel-body {
+  padding-top: 0px;
+}
+
+.fa-trash-alt {
+  color: #d8565688;
+}
+
+.fa-trash-alt:hover {
+  color: #ff0000a8;
+}
+
+.post-info-btn {
+  background-color: #93c9ff;
+  padding: 3px 10px;
+  color: #fff;
+  border-radius:33px;
+  font-size: 15px;
 }

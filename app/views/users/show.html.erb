@@ -4,13 +4,13 @@
       <div class="panel-heading">
         <div class="text-center">
           <span class="gravatar">
-            <img src="<%= gravatar_url(current_user, size: 80) %>" alt="" class="img-circle">
+            <img src="<%= gravatar_url(@user, size: 80) %>" alt="" class="img-circle">
           </span>
-          <h4><%= @user.name %>
+          <h4><%= @user.name %></h4>
         </div>
       </div>
       <div class="panel-body">
-        プロフィール
+        プロフィール実装予定
       </div>
     </div>
   </aside>
@@ -18,13 +18,25 @@
   <div class="col-sm-8">
     <div class="panel">
       <div class="panel-heading justify">
-        <a class="show-btn active" href="#">投稿</a>
+        <div class="show-btn <%= 'active' if current_page?(user_path(@user)) %>">
+          <%= link_to user_path(@user), class: 'show-btn-link' do %>
+            投稿 <%= @count_microposts %>
+          <% end %>
+        </div>
         <a class="show-btn" href="#">フォロー</a>
         <a class="show-btn" href="#">フォロワー</a>
         <a class="show-btn" href="#">いいね</a>
       </div>
-      <div class="panel-body">
-        投稿内容
+      <div class="micropost panel-body">
+        <%= render 'microposts/microposts', microposts: @microposts %>
+        <% unless @microposts.any? %>
+          <p style="padding-top: 10px">まだ投稿がありません</p>
+          <% if @user == current_user %>
+            <div class="text-muted">
+              <span class="post-info-btn"><i class="far fa-comment-dots">＋</i></span> を押してはじめての投稿をしてみよう
+            </div>
+          <% end %>
+        <% end %>
       </div>
     </div>
   </div>
