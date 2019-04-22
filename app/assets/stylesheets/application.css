@@ -3,6 +3,7 @@
 body {
   color: #463925;
   word-break: break-all;
+  padding-top: 70px;
 }
 
 .toppage {
@@ -273,4 +274,17 @@ h5.microposts {
   color: #fff;
   border-radius:33px;
   font-size: 15px;
+}
+
+.bottom-panel {
+  margin-bottom: 30%;
+}
+
+.delete-btn {
+  border: 0px;
+  padding: 0px;
+}
+
+.post-text {
+  margin: 5px 0px 0px 0px;
 }

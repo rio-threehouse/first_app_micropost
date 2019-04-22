@@ -16,11 +16,11 @@
   </aside>
   
   <div class="col-sm-8">
-    <div class="panel">
+    <div class="panel bottom-panel">
       <div class="panel-heading justify">
         <div class="show-btn <%= 'active' if current_page?(user_path(@user)) %>">
           <%= link_to user_path(@user), class: 'show-btn-link' do %>
-            投稿 <%= @count_microposts %>
+            投稿
           <% end %>
         </div>
         <a class="show-btn" href="#">フォロー</a>

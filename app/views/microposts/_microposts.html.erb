@@ -15,12 +15,14 @@
               </span>
               <% if current_user == micropost.user %>
                 <%= link_to micropost, method: :delete, data: { confirm: "本当に削除しますか？投稿は削除すると元に戻せません。" } do %>
-                  <div class="btn"><i class="far fa-trash-alt"></i></div>
+                  <div class="btn delete-btn pull-right"><i class="far fa-trash-alt"></i></div>
                 <% end %>
               <% end %>
             </h5>
           </div>
-          <%= simple_format(micropost.post) %>
+          <div class="post-text">
+            <%= simple_format(micropost.post) %>
+          </div>
         </div>
       </li>
     <% end %>

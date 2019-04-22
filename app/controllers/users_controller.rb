@@ -8,7 +8,6 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     @microposts = @user.microposts.order('created_at DESC')
     @micropost = current_user.microposts.build
-    counts(@user)
   end
 
   def new
