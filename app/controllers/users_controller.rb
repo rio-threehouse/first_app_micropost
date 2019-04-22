@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
   before_action :require_user_logged_in, except: [:new, :create]
+  
   def index
     @users = User.all.order('created_at DESC').page(params[:page])
   end
@@ -26,15 +27,22 @@ class UsersController < ApplicationController
   end
 
   def edit
-    #ユーザプロフィール変更
   end
 
   def update
-    #変更の保存
+    if current_user.update(user_params)
+      flash[:success] = 'ユーザ情報を変更しました'
+      redirect_to edit_user_url(current_user)
+    else
+      flash.now[:danger] = 'ユーザ情報の変更に失敗しました'
+      render :edit
+    end
   end
 
   def destroy
-    #ユーザ削除
+    current_user.destroy
+    flash[:danger] = 'ユーザを削除しました'
+    redirect_to root_url
   end
 
   private
