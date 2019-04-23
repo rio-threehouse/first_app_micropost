@@ -29,13 +29,16 @@ class UsersController < ApplicationController
   def edit
   end
 
+  def profile
+  end
+
   def update
     if current_user.update(user_params)
       flash[:success] = 'ユーザ情報を変更しました'
-      redirect_to edit_user_url(current_user)
+      redirect_back(fallback_location: root_path)
     else
-      flash.now[:danger] = 'ユーザ情報の変更に失敗しました'
-      render :edit
+      flash[:danger] = 'ユーザ情報の変更に失敗しました'
+      redirect_back(fallback_location: root_path)
     end
   end
 
@@ -48,6 +51,6 @@ class UsersController < ApplicationController
   private
 
   def user_params
-    params.require(:user).permit(:name, :email, :password, :password_confirmation)
+    params.require(:user).permit(:name, :email, :password, :password_confirmation, :description, :location, :birthday)
   end
 end

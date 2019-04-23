@@ -10,7 +10,24 @@
         </div>
       </div>
       <div class="panel-body">
-        プロフィール実装予定
+        <div>
+          <p><%= @user.description %></p>
+        </div>
+        <% if @user.location %>
+          <div class="text-muted">
+            <p><i class="fas fa-map-marker-alt"></i> <%= @user.location %></p>
+          </div>
+        <% end %>
+        <% if @user.birthday %>
+          <div class="text-muted">
+            <p><i class="fas fa-birthday-cake"></i> <%= @user.birthday %></p>
+          </div>
+        <% end %>
+        <div>
+          <% if @user == current_user %>
+            <%= link_to 'プロフィールを編集', profile_user_path(current_user), class: 'btn btn-xs blue-btn2 pull-right'%>
+          <% end %>
+        </div>
       </div>
     </div>
   </aside>

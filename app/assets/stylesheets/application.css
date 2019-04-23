@@ -74,6 +74,7 @@ body {
 
 .topcoment h1 {
 margin-top: 15%;
+word-break: normal;
 }
 
 .blue-btn {
@@ -132,7 +133,7 @@ margin-top: 15%;
   display: inline-block;
   padding: 0.3em 1em;
   text-decoration: none;
-  color: #f2d58a;
+  color: #e2af2c;
   border: solid 2px #f2d58a;
   background-color: #fff;
   border-radius: 3px;
@@ -141,6 +142,7 @@ margin-top: 15%;
 
 .yellow-btn2:hover {
   background: #f2d58a;
+  text-decoration: none;
   color: white;
 }
 
@@ -148,7 +150,7 @@ margin-top: 15%;
   display: inline-block;
   padding: 0.3em 1em;
   text-decoration: none;
-  color: #93c9ff;
+  color: #56aaff;
   border: solid 2px #93c9ff;
   background-color: #fff;
   border-radius: 3px;

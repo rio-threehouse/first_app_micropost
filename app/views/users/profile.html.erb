@@ -1,0 +1,35 @@
+<div class="row">
+  <div class="col-sm-6 col-sm-offset-3">
+    <div class="panel">
+      <div class="panel-heading">
+        <div class="text-center">
+          <h3>
+            プロフィール編集
+          </h3>
+          <span class="gravatar">
+            <img src="<%= gravatar_url(current_user, size: 80) %>" alt="" class="img-circle">
+          </span>
+          <p><a href="https://ja.gravatar.com/", target="_blank">Gravatarを作成してプロフィール画像を編集する</a></p>
+          <h4><%= current_user.name %></h4>
+        </div>
+      </div>
+      <div class="panel-body">
+        <%= form_for(current_user) do |f| %>
+          <div class="form-group">
+            <%= f.text_area :description, class: 'form-control', placeholder: '自己紹介', rows: 8 %>
+          </div>
+          <div class="form-group">
+            <%= f.text_field :location, class: 'form-control', placeholder: '場所' %>
+          </div>
+          <div class="form-group">
+            <%= f.label :birthday, '誕生日', class: 'text-muted'%>
+            <%= f.date_select :birthday, :start_year => 1950, :end_year => 2050, :use_month_numbers => true, :include_blank => true, :date_separator => '／' %>
+            <p class="text-muted">※年、月、日全てを選択しないと空欄として保存されます</p>
+          </div>
+          <%= f.submit '編集を保存する', class: 'blue-btn2 pull-right'%>
+        <% end %>
+        <%= link_to 'キャンセル', user_path(current_user), class: 'yellow-btn2 pull-left' %>
+      </div>
+    </div>
+  </div>
+</div>

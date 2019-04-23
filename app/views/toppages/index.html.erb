@@ -25,7 +25,7 @@
             <span class="gravatar">
               <img src="<%= gravatar_url(current_user, size: 80) %>" alt="" class="img-circle">
             </span>
-            <h4><%= current_user.name %></h4>
+            <h4><%= link_to current_user.name, user_path(current_user) %></h4>
           </div>
         </div>
         <div class="panel-body row text-center">
