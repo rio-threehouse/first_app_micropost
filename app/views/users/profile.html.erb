@@ -22,13 +22,12 @@
             <%= f.text_field :location, class: 'form-control', placeholder: '場所' %>
           </div>
           <div class="form-group">
-            <%= f.label :birthday, '誕生日', class: 'text-muted'%>
+            <p class="text-muted">誕生日 ※年、月、日全てを選択しないと空欄として保存されます</p>
             <%= f.date_select :birthday, :start_year => 1950, :end_year => 2050, :use_month_numbers => true, :include_blank => true, :date_separator => '／' %>
-            <p class="text-muted">※年、月、日全てを選択しないと空欄として保存されます</p>
           </div>
           <%= f.submit '編集を保存する', class: 'blue-btn2 pull-right'%>
         <% end %>
-        <%= link_to 'キャンセル', user_path(current_user), class: 'yellow-btn2 pull-left' %>
+        <%= link_to '戻る', user_path(current_user), class: 'yellow-btn2 pull-left' %>
       </div>
     </div>
   </div>

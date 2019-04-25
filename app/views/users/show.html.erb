@@ -13,7 +13,7 @@
         <div>
           <p><%= @user.description %></p>
         </div>
-        <% if @user.location %>
+        <% unless @user.location == nil || @user.location == "" %>
           <div class="text-muted">
             <p><i class="fas fa-map-marker-alt"></i> <%= @user.location %></p>
           </div>
