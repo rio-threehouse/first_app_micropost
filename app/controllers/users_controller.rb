@@ -11,6 +11,12 @@ class UsersController < ApplicationController
     @micropost = current_user.microposts.build
   end
 
+  def goods
+    @user = User.find(params[:id])
+    @good_microposts = @user.good_microposts.order('created_at DESC').page(params[:page])
+    @micropost = current_user.microposts.build
+  end
+
   def new
     @user = User.new
   end

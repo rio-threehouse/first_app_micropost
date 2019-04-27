@@ -9,8 +9,11 @@ Rails.application.routes.draw do
   resources :users do
     member do
       get :profile
+      get :goods
     end
   end
 
   resources :microposts, only: [:create, :destroy]
+  resources :goods, only: [:create, :destroy]
+
 end

@@ -1,0 +1,15 @@
+<% if current_user.good?(micropost) %>
+  <%= form_for(current_user.goods.find_by(micropost_id: micropost.id), html: { method: :delete }) do |f| %>
+    <%= hidden_field_tag :micropost_id, micropost.id %>
+    <%= button_tag type: 'submit', class: 'btn icon-btn good-btn' do %>
+      <i class="fas fa-thumbs-up"></i> <%= micropost.goods.count %>
+    <% end %>
+  <% end %>
+<% else %>
+  <%= form_for(current_user.goods.build) do |f| %>
+    <%= hidden_field_tag :micropost_id, micropost.id %>
+    <%= button_tag type: 'submit', class: 'btn icon-btn' do %>
+      <i class="far fa-thumbs-up"></i> <%= micropost.goods.count %>
+    <% end %>
+  <% end %>
+<% end %>

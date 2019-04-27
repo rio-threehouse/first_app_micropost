@@ -35,22 +35,22 @@
   <div class="col-sm-8">
     <div class="panel bottom-panel">
       <div class="panel-heading justify">
-        <div class="show-btn active">
+        <%= link_to  user_path(@user), class: 'show-btn show-btn-link'  do %>
           投稿
-        </div>
+        <% end %>
         <a class="show-btn" href="#">フォロー</a>
         <a class="show-btn" href="#">フォロワー</a>
-        <%= link_to goods_user_path(@user), class: 'show-btn show-btn-link' do %>
+        <div class="show-btn active">
           いいね
-        <% end %>
+        </div>
       </div>
       <div class="micropost panel-body">
-        <%= render 'microposts/microposts', microposts: @microposts %>
-        <% unless @microposts.any? %>
-          <p style="padding-top: 10px">投稿がありません</p>
+        <%= render 'microposts/microposts', microposts: @good_microposts %>
+        <% unless @good_microposts.any? %>
+          <p style="padding-top: 10px">いいねをした投稿がありません</p>
           <% if @user == current_user %>
             <div class="text-muted">
-              <span class="post-info-btn"><i class="far fa-comment-dots">＋</i></span> を押してはじめての投稿をしてみよう
+              <i class="far fa-thumbs-up"></i> をしよう
             </div>
           <% end %>
         <% end %>

@@ -3,14 +3,7 @@ class ToppagesController < ApplicationController
     if logged_in?
       @microposts = current_user.microposts.order('created_at DESC').page(params[:page])
       @micropost = current_user.microposts.build
-      counts
+      counts(current_user)
     end
   end
-
-  private
-  
-  def counts
-    @count_microposts = current_user.microposts.count
-  end
-
 end

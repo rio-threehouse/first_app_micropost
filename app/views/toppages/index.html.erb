@@ -8,11 +8,10 @@
         <div class="panel-body">
           <%= render 'microposts/microposts', microposts: @microposts %>
           <% unless @microposts.any? %>
-            <p>まだ投稿がありません</p>
-              <ul class="text-muted">
-                <li><span class="post-info-btn"><i class="far fa-comment-dots">＋</i></span> を押してはじめての投稿をしてみよう</li>
-                <li>気になるユーザをフォローしよう</li>
-              </ul>
+            <ul class="text-muted">
+              <li><p><span class="post-info-btn"><i class="far fa-comment-dots">＋</i></span> を押してはじめての投稿をしてみよう</p></li>
+              <li><p>気になるユーザをフォローしよう</p></li>
+            </ul>
         <% end %>
         </div>
       </div>
