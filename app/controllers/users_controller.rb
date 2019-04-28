@@ -3,6 +3,7 @@ class UsersController < ApplicationController
   
   def index
     @users = User.all.order('created_at DESC').page(params[:page])
+    @followings = current_user.followings.page(params[:page])
   end
 
   def show
@@ -14,6 +15,18 @@ class UsersController < ApplicationController
   def goods
     @user = User.find(params[:id])
     @good_microposts = @user.good_microposts.order('created_at DESC').page(params[:page])
+    @micropost = current_user.microposts.build
+  end
+
+  def followings
+    @user = User.find(params[:id])
+    @followings = @user.followings.order('created_at DESC').page(params[:page])
+    @micropost = current_user.microposts.build
+  end
+  
+  def followers
+    @user = User.find(params[:id])
+    @followers = @user.followers.order('created_at DESC').page(params[:page])
     @micropost = current_user.microposts.build
   end
 

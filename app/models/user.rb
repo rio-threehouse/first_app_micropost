@@ -24,5 +24,29 @@ class User < ApplicationRecord
 
   def good?(micropost)
     self.good_microposts.include?(micropost)
-  end  
+  end 
+
+  has_many :relationships
+  has_many :followings, through: :relationships, source: :follow, dependent: :destroy
+  has_many :reverses_of_relationships, class_name: 'Relationship', foreign_key: 'follow_id'
+  has_many :followers, through: :reverses_of_relationships, source: :user, dependent: :destroy
+
+  def follow(user)
+    unless self == user
+      self.relationships.find_or_create_by(follow_id: user.id)
+    end
+  end
+
+  def unfollow(user)
+    relationship = self.relationships.find_by(follow_id: user.id)
+    relationship.destroy if relationship
+  end
+
+  def following?(user)
+    self.followings.include?(user)
+  end
+
+  def feed_microposts
+    Micropost.where(user_id: self.following_ids + [self.id] )
+  end
 end

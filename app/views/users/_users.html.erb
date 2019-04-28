@@ -10,10 +10,10 @@
           <div class="user media-heading">
             <h4>
               <%= user.name %>
-              <a class="follow btn btn-info ">フォローする</a>
             </h4>
           </div>
           <%= user.description %>
+          <%= render 'relationships/follow_or_unfollow_btn', user: user %>
         </div>
       </li>
     <% end %>

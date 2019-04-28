@@ -10,10 +10,12 @@ Rails.application.routes.draw do
     member do
       get :profile
       get :goods
+      get :followings
+      get :followers
     end
   end
 
   resources :microposts, only: [:create, :destroy]
   resources :goods, only: [:create, :destroy]
-
+  resources :relationships, only: [:create, :destroy]
 end

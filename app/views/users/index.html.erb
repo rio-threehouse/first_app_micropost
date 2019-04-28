@@ -15,10 +15,10 @@
         </div>
       </div>
       <div class="panel-body">
-        フォローしている人がいればそのユーザを表示。<br>
-        フォローしている人がいなかったら、<br>
-        "<i class="fas fa-user-check home-icon"></i>気になる人をフォローしよう"<br>
-        と表示する。
+        <%= render 'users/users', users: @followings %>
+        <% unless @followings.any? %>
+          <i class="fas fa-user-check home-icon"></i> 気になるユーザをフォローしよう
+        <% end %>
       </div>
     </div>
   </aside>

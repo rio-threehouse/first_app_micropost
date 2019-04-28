@@ -25,7 +25,9 @@
         <% end %>
         <div>
           <% if @user == current_user %>
-            <%= link_to 'プロフィールを編集', profile_user_path(current_user), class: 'btn btn-xs blue-btn2 pull-right'%>
+            <%= link_to 'プロフィールを編集', profile_user_path(current_user), class: 'btn btn-xs blue-btn2'%>
+          <% else %>
+            <%= render 'relationships/follow_or_unfollow_btn', user: @user %>
           <% end %>
         </div>
       </div>
@@ -35,15 +37,20 @@
   <div class="col-sm-8">
     <div class="panel bottom-panel">
       <div class="panel-heading justify">
-        <div class="show-btn active">
-          投稿
+        <div class="show-btn <%= 'active' if current_page?(user_path(@user)) %>">
+          <%= link_to '投稿', user_path(@user), class: 'show-btn-link' %>
         </div>
-        <a class="show-btn" href="#">フォロー</a>
-        <a class="show-btn" href="#">フォロワー</a>
-        <%= link_to goods_user_path(@user), class: 'show-btn show-btn-link' do %>
-          いいね
-        <% end %>
+        <div class="show-btn <%= 'active' if current_page?(followings_user_path(@user)) %>">
+          <%= link_to 'フォロー', followings_user_path(@user), class: 'show-btn-link'%>
+        </div>
+        <div class="show-btn <%= 'active' if current_page?(followers_user_path(@user)) %>">
+          <%= link_to 'フォロワー', followers_user_path(@user), class: 'show-btn-link'%>
+        </div>
+        <div class="show-btn <%= 'active' if current_page?(goods_user_path(@user)) %>">
+          <%= link_to 'いいね', goods_user_path(@user), class: 'show-btn-link' %>
+        </div>
       </div>
+      
       <div class="micropost panel-body">
         <%= render 'microposts/microposts', microposts: @microposts %>
         <% unless @microposts.any? %>

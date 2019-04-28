@@ -52,12 +52,12 @@
       </div>
       
       <div class="micropost panel-body">
-        <%= render 'microposts/microposts', microposts: @good_microposts %>
-        <% unless @good_microposts.any? %>
-          <p style="padding-top: 10px">いいねをした投稿がありません</p>
+        <%= render 'users/users', users: @followings %>
+        <% unless @followings.any? %>
+          <p style="padding-top: 10px">フォローしているユーザはいません</p>
           <% if @user == current_user %>
             <div class="text-muted">
-              <i class="far fa-thumbs-up"></i> をしよう
+              <i class="fas fa-user-check"></i> ユーザをフォローしよう
             </div>
           <% end %>
         <% end %>
