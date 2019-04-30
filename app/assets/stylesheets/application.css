@@ -5,6 +5,7 @@ body {
   word-break: break-all;
   padding-top: 70px;
 }
+
 .pagination>.active>a {
   background: #93c9ff;
   border-color: #93c9ff;
@@ -264,6 +265,10 @@ word-break: normal;
   padding-left: 5px;
 }
 
+.media-left {
+  padding-right: 3px;
+}
+
 .follow-btn {
   position: relative;
   padding: 1px 25px;
@@ -299,6 +304,7 @@ word-break: normal;
 
 h5.microposts {
   margin: 0px;
+  word-break: keep-all;
 }
 
 .link {
@@ -311,10 +317,6 @@ h5.microposts {
 
 .link:hover {
   background: #b8b8b818;
-}
-
-.micropost.panel-body {
-  padding-top: 0px;
 }
 
 .fa-trash-alt {
