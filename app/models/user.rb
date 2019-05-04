@@ -49,4 +49,7 @@ class User < ApplicationRecord
   def feed_microposts
     Micropost.where(user_id: self.following_ids + [self.id] )
   end
+
+  has_many :comments
+  has_many :comment_microposts, through: :comments, source: :micropost, dependent: :destroy
 end

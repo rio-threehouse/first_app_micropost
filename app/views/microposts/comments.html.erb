@@ -1,0 +1,86 @@
+<div class="row">  
+  <div class="col-sm-8 col-sm-push-4">
+    <div class="panel">
+      <div class="panel-heading">
+        <%= render 'microposts/micropost', micropost: @micropost, user: @user %>
+      </div>
+      <button type="button" class="comment-btn" data-toggle="modal" data-target="#comment-form">
+        コメントする
+      </button>
+      <%= render 'comments/comment_form', micropost: @micropost, user: @user %>
+      <div class="panel-body">
+        <% if @comments.any? %>
+          <ul class="media-list">
+            <% @comments.each do |comment| %>
+              <li class="media">
+                <div class="media-left">
+                  <img src="<%= gravatar_url(comment.user, size: 45) %>" alt="" class="img-circle">
+                </div>
+                <div class="media-body">
+                <div class="media-heading">
+                  <h5 class="microposts">
+                    <%= link_to comment.user.name, comment.user %> 
+                    <span class="text-muted">
+                      <%= comment.created_at.strftime('%Y/%m/%d') %>
+                      <i class="far fa-clock"> <%= time_ago_in_words(comment.created_at, include_seconds: true) %></i>
+                    </span>
+                  </h5>
+                </div>
+                <div class="post-text">
+                  <%= simple_format(comment.post) %>
+                </div>
+                <% if current_user == comment.user %>
+                  <%= link_to comment, method: :delete, data: { confirm: "本当に削除しますか？投稿は削除すると元に戻せません。" } do %>
+                    <div class="btn icon-btn pull-right"><i class="far fa-trash-alt"></i></div>
+                  <% end %>
+                <% end %>
+              </li>
+            <% end %>
+          </ul>
+          <div class="text-center">
+            <%= paginate @comments %>
+          </div>
+        <% end %>
+        <% unless @comments.any? %>
+          <p style="padding-top: 10px">コメントはありません</p>
+        <% end %>
+      </div>
+    </div>
+  </div>
+
+  <aside class="col-sm-4 col-sm-pull-8">
+    <div class="panel">
+      <div class="panel-heading">
+        <div class="text-center">
+          投稿者
+        </div>
+      </div>
+      <div class="panel-body">
+        <div class="text-center" style="padding-top: 10px; background: #e9f4ff">
+          <span class="gravatar">
+            <img src="<%= gravatar_url(@user, size: 60) %>" alt="" class="img-circle">
+          </span>
+          <h4 style="padding-bottom: 15px"><%= @user.name %></h4>
+        </div>
+        <div>
+          <p><%= @user.description %></p>
+        </div>
+        <% unless @user.location == nil || @user.location == "" %>
+          <div class="text-muted">
+            <p><i class="fas fa-map-marker-alt"></i> <%= @user.location %></p>
+          </div>
+        <% end %>
+        <% if @user.birthday %>
+          <div class="text-muted">
+            <p><i class="fas fa-birthday-cake"></i> <%= @user.birthday %></p>
+          </div>
+        <% end %>
+        <div>
+          <% unless @user == current_user %>
+            <%= render 'relationships/follow_or_unfollow_btn', user: @user %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </aside>
+</div>

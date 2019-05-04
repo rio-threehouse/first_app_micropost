@@ -1,0 +1,21 @@
+<div class="modal fade" id="comment-form" tabindex="-1">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal"><span>×</span></button>
+				<%= render 'microposts/micropost', micropost: micropost, user: user%>
+			</div>
+      <%= form_for(current_user.comments.build) do |f| %>
+        <div class="modal-body">
+          <div class="form-group">
+            <%= hidden_field_tag :micropost_id, micropost.id %>
+            <%= f.text_area :post, class: 'form-control', rows: 10 , placeholder: 'コメントを書く' %>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <%= f.submit 'コメントを投稿する', class: 'yellow-btn2' %>
+        </div>
+      <% end %>
+		</div>
+	</div>
+</div>

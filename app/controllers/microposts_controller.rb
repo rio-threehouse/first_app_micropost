@@ -20,6 +20,12 @@ class MicropostsController < ApplicationController
     redirect_back(fallback_location: root_path)
   end
 
+  def comments
+    @micropost = Micropost.find(params[:id])
+    @user = @micropost.user
+    @comments = @micropost.comments.order('created_at DESC').page(params[:page])
+  end
+
   private
 
   def micropost_params

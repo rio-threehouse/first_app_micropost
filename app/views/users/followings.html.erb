@@ -51,7 +51,7 @@
         </div>
       </div>
       
-      <div class="micropost panel-body">
+      <div class="panel-body">
         <%= render 'users/users', users: @followings %>
         <% unless @followings.any? %>
           <p style="padding-top: 10px">フォローしているユーザはいません</p>

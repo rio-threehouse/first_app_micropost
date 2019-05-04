@@ -29,6 +29,11 @@ body {
   background-image: linear-gradient(-90deg, #ECFBFE, #FEF7EC);
 }
 
+#footer {
+  display: block;
+  height: 70px;
+}
+
 .navbar-nav>li>a.dropdown-toggle {
   padding-top: 8px;
   padding-bottom: 0px
@@ -57,10 +62,6 @@ body {
 .fixed_btn:hover {
   background: #74baff;
   text-decoration: none;
-}
-
-.fa-comment {
-  color: #fff;
 }
 
 .navbar {
@@ -316,7 +317,7 @@ h5.microposts {
 }
 
 .link:hover {
-  background: #b8b8b818;
+  background: #ccdff111;
 }
 
 .fa-trash-alt {
@@ -335,11 +336,8 @@ h5.microposts {
   font-size: 15px;
 }
 
-.bottom-panel {
-  margin-bottom: 30%;
-}
-
 .icon-btn {
+  position: relative;
   border: 0px;
   padding: 0px;
   background: #fff;
@@ -349,6 +347,28 @@ h5.microposts {
   margin: 5px 0px 0px 0px;
 }
 
+.good {
+  margin: 0px 60px 0px 0px;
+}
+
 .good-btn {
   color: #ff9124;
+}
+
+.comment-icon {
+  border: #fff;
+}
+
+.comment-btn {
+  background: #e9f4ff;
+  border: 1px solid #573a0d;
+  color: #573a0d;
+  display: block;
+  width: 90%;
+  margin: 10px auto;
+  padding: 5px;
+}
+
+.comment-btn:hover {
+  background: #bbddff;
 }
