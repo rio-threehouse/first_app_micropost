@@ -105,9 +105,14 @@ img.top-img {
   font-size: 20px;
 }
 
-.topcoment h1 {
+.topcoment h2 {
+color: #4f555f;
 margin-top: 15%;
 word-break: normal;
+}
+
+.topcoment h4 {
+  color: #5b677a;
 }
 
 .topcoment.text-center {
