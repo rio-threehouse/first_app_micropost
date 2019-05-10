@@ -6,6 +6,10 @@ body {
   padding-top: 70px;
 }
 
+.navbar-header button {
+  padding: 5px 6px;
+}
+
 .pagination>.active>a {
   background: #93c9ff;
   border-color: #93c9ff;
