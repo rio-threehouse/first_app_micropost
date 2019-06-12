@@ -51,17 +51,23 @@
   <aside class="col-sm-4 col-sm-pull-8">
     <div class="panel">
       <div class="panel-heading">
+      
         <div class="text-center">
           投稿者
         </div>
+      
       </div>
       <div class="panel-body">
-        <div class="text-center" style="padding-top: 10px; background: #e9f4ff">
-          <span class="gravatar">
-            <img src="<%= gravatar_url(@user, size: 60) %>" alt="" class="img-circle">
-          </span>
-          <h4 style="padding-bottom: 15px"><%= @user.name %></h4>
-        </div>
+
+        <%= link_to user_path(@user) do %>
+          <div class="text-center" style="padding-top: 10px; background: #e9f4ff">
+            <span class="gravatar">
+              <img src="<%= gravatar_url(@user, size: 60) %>" alt="" class="img-circle">
+            </span>
+            <h4 style="padding-bottom: 15px"><%= @user.name %></h4>
+          </div>
+        <% end %>
+        
         <div>
           <p><%= @user.description %></p>
         </div>
