@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
   before_action :require_user_logged_in, except: [:new, :create]
+  before_action :guest_user, only: [:update, :destroy]
   
   def index
     @users = User.all.order('created_at DESC').page(params[:page])
@@ -70,5 +71,11 @@ class UsersController < ApplicationController
 
   def user_params
     params.require(:user).permit(:name, :email, :password, :password_confirmation, :description, :location, :birthday)
+  end
+
+  def guest_user
+    if current_user.name == 'ゲスト'
+      redirect_to root_url
+    end
   end
 end

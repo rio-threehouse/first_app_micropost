@@ -4,38 +4,42 @@
       <div class="text-center">
         <h3>アカウント設定</h3>
       </div>
-      <%= form_for(current_user) do |f| %>
-        <%= render 'layouts/error_messages', model: f.object %>
-        <div class="form-group">
-          <%= f.label :name, '名前' %>
-          <%= f.text_field :name, class: 'form-control' %>
-        </div>
-        <div class="form-group">
-          <%= f.label :email, 'メールアドレス' %>
-          <%= f.email_field :email, class: 'form-control' %>
-        </div>
-        <a class="btn btn-default btn-block" data-toggle="collapse" href="#passcollapse" style="margin-bottom: 30px">
-          パスワード変更
-        </a>
-             
-        <div id="passcollapse" class="collapse">
+      <% if current_user.name == 'ゲスト' %>
+        <div class="text-center">ゲストはアカウント設定を変更できません</div>
+      <% else %>
+        <%= form_for(current_user) do |f| %>
+          <%= render 'layouts/error_messages', model: f.object %>
           <div class="form-group">
-            <%= f.label :password, 'パスワード' %>
-            <%= f.password_field :password, class: 'form-control', placeholder: '空欄の場合、パスワードは変更されません'%>
+            <%= f.label :name, '名前' %>
+            <%= f.text_field :name, class: 'form-control' %>
           </div>
           <div class="form-group">
-            <%= f.label :password_confirmation, 'パスワード確認' %>
-            <%= f.password_field :password_confirmation, class: 'form-control' %>
+            <%= f.label :email, 'メールアドレス' %>
+            <%= f.email_field :email, class: 'form-control' %>
           </div>
-        </div>
-        
-        <div class='text-center'>
-          <%= f.submit '変更を保存する', class: 'blue-btn2' %>
+          <a class="btn btn-default btn-block" data-toggle="collapse" href="#passcollapse" style="margin-bottom: 30px">
+            パスワード変更
+          </a>
+              
+          <div id="passcollapse" class="collapse">
+            <div class="form-group">
+              <%= f.label :password, 'パスワード' %>
+              <%= f.password_field :password, class: 'form-control', placeholder: '空欄の場合、パスワードは変更されません'%>
+            </div>
+            <div class="form-group">
+              <%= f.label :password_confirmation, 'パスワード確認' %>
+              <%= f.password_field :password_confirmation, class: 'form-control' %>
+            </div>
+          </div>
+          
+          <div class='text-center'>
+            <%= f.submit '変更を保存する', class: 'blue-btn2' %>
+          </div>
+        <% end %>
+        <div class="text-center">
+          <%= link_to 'カウントを削除する', current_user, method: :delete, data: { confirm: "アカウントを削除すると、アカウントに関する全ての情報が削除されます。本当に削除しますか？" }, class: 'red-btn2' %>
         </div>
       <% end %>
-      <div class="text-center">
-        <%= link_to 'カウントを削除する', current_user, method: :delete, data: { confirm: "アカウントを削除すると、アカウントに関する全ての情報が削除されます。本当に削除しますか？" }, class: 'red-btn2' %>
-      </div>
     </div>
   </div>
 </div>
