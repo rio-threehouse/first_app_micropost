@@ -380,6 +380,10 @@ h5.microposts {
   color: #ff9124;
 }
 
+.ungood {
+  color: #696969;
+}
+
 .comment-icon {
   border: #fff;
 }

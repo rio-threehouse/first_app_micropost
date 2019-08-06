@@ -19,9 +19,11 @@ Rails.application.routes.draw do
     member do 
       get :comments
     end
+
+    resource :goods, only: [:create, :destroy]
   end
 
-  resources :goods, only: [:create, :destroy]
+  
   resources :relationships, only: [:create, :destroy]
 
   resources :comments, only: [:create, :destroy]

@@ -20,7 +20,11 @@
             <%= simple_format(micropost.post) %>
           </div>
           <div class="btn-toolbar">
-            <%= render 'goods/good_btn', micropost: micropost %> 
+
+            <div id="goods_buttons_<%= micropost.id %>">
+              <%= render 'goods/good_btn', micropost: micropost %>
+            </div>
+            
             <i class="far fa-comment"></i> <%= micropost.comments.count %>
             <% if current_user == micropost.user %>
               <%= link_to micropost, method: :delete, data: { confirm: "本当に削除しますか？投稿は削除すると元に戻せません。" } do %>
