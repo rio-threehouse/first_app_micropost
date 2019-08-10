@@ -380,6 +380,10 @@ h5.microposts {
   color: #ff9124;
 }
 
+.good-btn:hover {
+  color: #fd6710;
+}
+
 .ungood {
   color: #696969;
 }
